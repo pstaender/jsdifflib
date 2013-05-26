@@ -397,11 +397,17 @@ difflib = {
 		this.real_quick_ratio = function () {
 			var la = this.a.length;
 			var lb = this.b.length;
-			return _calculate_ratio(Math.min(la, lb), la + lb);
+			return difflib.__calculate_ratio(Math.min(la, lb), la + lb);
 		}
 		
 		this.isjunk = isjunk ? isjunk : difflib.defaultJunkFunction;
 		this.a = this.b = null;
 		this.set_seqs(a, b);
+	}
+}
+
+if (typeof exports !== 'undefined') {
+	module.exports = exports = {
+		difflib: difflib
 	}
 }
